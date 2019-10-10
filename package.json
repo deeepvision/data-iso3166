@@ -1,17 +1,21 @@
 {
-  "name": "scrapping-countries",
+  "name": "@deeepvision/data-iso3166",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Country List provider",
   "scripts": {
-    "parse": "node ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node bin/app"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Andriy Pashinnik",
+  "contributors": [
+    "Sergii Sadovyi <s.sadovyi@deepvision.team>"
+  ],
   "dependencies": {
-    "puppeteer": "^1.18.0",
-    "shortid": "^2.2.14"
+    "@types/fs-extra": "^8.0.0",
+    "@types/node": "^12.7.12",
+    "@types/puppeteer": "^1.20.1",
+    "fs-extra": "^8.1.0",
+    "puppeteer": "^1.20.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }
