@@ -1,21 +1,28 @@
 {
   "name": "@deeepvision/data-iso3166",
-  "version": "1.0.0",
+  "version": "2019.1.0",
   "description": "Country List provider",
   "scripts": {
-    "start": "ts-node bin/app"
+    "start": "ts-node bin/app",
+    "lint": "eslint src bin --ext ts"
   },
   "author": "Andriy Pashinnik",
   "contributors": [
     "Sergii Sadovyi <s.sadovyi@deepvision.team>"
   ],
   "dependencies": {
-    "@types/fs-extra": "^8.0.0",
-    "@types/node": "^12.7.12",
-    "@types/puppeteer": "^1.20.1",
+    "@types/fs-extra": "^8.0.1",
+    "@types/node": "^13.1.0",
+    "@types/puppeteer": "^2.0.0",
     "fs-extra": "^8.1.0",
-    "puppeteer": "^1.20.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
+    "puppeteer": "^2.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "@deepvision/eslint-config": "^6.6.4",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "eslint": "^6.8.0"
   }
 }

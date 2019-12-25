@@ -13,13 +13,16 @@ const PER_PAGE_VALUE = '16';
  * Element Selectors of the needed elements
  */
 const SELECTOR = {
+    // eslint-disable-next-line max-len
     LNK_CODES: '#obpui-105541713 > div > div.v-customcomponent.v-widget.v-has-width.v-has-height > div > div > div:nth-child(2) > div > div > div.v-tabsheet-content.v-tabsheet-content-header > div > div > div > div > div > div.v-slot.v-slot-borderless > div > div.v-panel-content.v-panel-content-borderless.v-scrollable > div > div > div:nth-child(1) > div > div > div > div > div > div:nth-child(6) > div',
+    // eslint-disable-next-line max-len
     BTN_SEARCH: '#obpui-105541713 > div > div.v-customcomponent.v-widget.v-has-width.v-has-height > div > div > div:nth-child(2) > div > div > div.v-tabsheet-content.v-tabsheet-content-header > div > div > div > div > div > div:nth-child(2) > div > div.v-slot.v-slot-global-search.v-slot-light.v-slot-home-search > div > div.v-panel-content.v-panel-content-global-search.v-panel-content-light.v-panel-content-home-search.v-scrollable > div > div > div.v-slot.v-slot-go > div > span',
+    // eslint-disable-next-line max-len
     SELECT_RESULTS: '#obpui-105541713 > div > div.v-customcomponent.v-widget.v-has-width.v-has-height > div > div > div:nth-child(2) > div > div > div.v-tabsheet-content.v-tabsheet-content-header > div > div > div > div > div > div.v-slot.v-slot-search-header > div > div:nth-child(5) > div:nth-child(3) > div > select',
     TBL_CODES: '.country-code tbody',
 };
 
-const delay = (timeout: number) => {
+const delay = async (timeout: number): Promise<void> => {
     return new Promise((resolve) => {
         setTimeout(resolve, timeout);
     });
@@ -52,19 +55,22 @@ const run = async (): Promise<void> => {
         const data = [];
         rows.forEach(row => {
             data.push({
-                name: getCellValue(row, 1),
-                'alpha-2-code': getCellValue(row, 3),
-                'alpha-3-code': getCellValue(row, 4),
-                numeric: getCellValue(row, 5),
+                name: {
+                    en: getCellValue(row, 1),
+                },
+                codeAlpha2: getCellValue(row, 3),
+                codeAlpha3: getCellValue(row, 4),
+                codeNumeric: getCellValue(row, 5),
             });
         });
         
         data
     `);
 
+    await fs.ensureDir('./build');
     await fs.writeFile(
-        './countries.json',
-        JSON.stringify(countries, null, 4)
+        './build/countries.json',
+        JSON.stringify(countries, null, 4),
     );
     await browser.close();
 };
