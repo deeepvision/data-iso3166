@@ -1,10 +1,6 @@
 module.exports = {
     root: true,
     extends: [
-        '@deepvision',
-        '@deepvision/eslint-config/plugins/typescript',
+        'plugin:@deepvision/recommended-node',
     ],
-    parserOptions: {
-        project: './tsconfig.json',
-    },
 };
